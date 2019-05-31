@@ -2,6 +2,7 @@ from PySide.QtGui import *
 from PySide.QtCore import *
 from PySide.QtUiTools import *
 import sys 
+import os
 import texture_tranfer
 reload(texture_tranfer)
 from shiboken import wrapInstance
@@ -16,7 +17,7 @@ class MyMainWindow(QMainWindow):
 	def __init__(self, parent = None):
 		super(MyMainWindow, self).__init__(parent)
 		loader = QUiLoader()
-		file = QFile("C:/Users/pouse.napat/Documents/maya/scripts/texture.ui")
+		file = QFile( os.path.dirname(__file__) + "/texture.ui")
 		file.open(QFile.ReadOnly)
 		self.ui = loader.load(file)
 		file.close
